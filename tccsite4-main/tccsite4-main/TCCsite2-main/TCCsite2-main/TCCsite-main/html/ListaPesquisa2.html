@@ -1,0 +1,19 @@
+<?php 
+$servidor = "Localhost";
+$usuario = "root";
+$senha = "";
+$bd = "";
+
+
+$conn = mysqli_connect($servidor, $usuario, $senha, $bd );
+
+$pesquisar = $_POST ['pesquisar'];
+$result_trabalhador = "SELECT * FROM trabalhador WHERE nome LIKE '%$pesquisar% LIMIT 5";
+$resultado_trabalhador = mysqli_query ($conn, $result_trabalhador);
+
+while($rows_trabalhador = mysqli_fecth_array($resultado_trabalhador)){
+    echo "Nome do trabalhador: ".$rows_trabalhador['nome']. "<br>"
+}
+
+
+?>
